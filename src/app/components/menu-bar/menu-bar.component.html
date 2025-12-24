@@ -1,0 +1,17 @@
+<div class="container__menu-bar">
+  <ul>
+    <li><a routerLink="/">Início</a></li>
+    <li><span>•</span></li>
+    <li><a routerLink="/favoritos">Favoritos</a></li>
+    <li><span>•</span></li>
+    <li>
+      <button type="button" class="botao__tema" (click)="alternarTema()">
+        {{ temaAtual === 'escuro' ? 'Tema claro' : 'Tema escuro' }}
+      </button>
+    </li>
+    <li><span>•</span></li>
+    <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">Linkedin</a></li>
+    <li><span>•</span></li>
+    <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">Github</a></li>
+  </ul>
+</div>

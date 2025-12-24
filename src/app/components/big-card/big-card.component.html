@@ -1,0 +1,32 @@
+<div class="container__big-card">
+  <div class="big-card__photo">
+    <a [routerLink]="['content', Id]">
+      <img
+        src="{{ photoCover }}"
+        alt=""
+        height="200px"
+        srcset=""
+      >
+    </a>
+  </div>
+
+  <div class="big-card__cabecalho">
+    <div class="big-card__meta">
+      <span class="big-card__categoria" *ngIf="categoria">{{ categoria }}</span>
+      <span class="big-card__data" *ngIf="obterDataFormatada()">{{ obterDataFormatada() }}</span>
+    </div>
+    <button type="button" class="big-card__favorito" (click)="alternarFavorito($event)" aria-label="favorito">
+      {{ favorito ? '★' : '☆' }}
+    </button>
+  </div>
+
+  <div class="big-card__title">
+    <h1><a [routerLink]="['content', Id]">{{ cardTitle }}</a></h1>
+  </div>
+
+  <div class="big-card__description">
+    <p>
+      <a [routerLink]="['content', Id]">{{ cardDescription }}</a>
+    </p>
+  </div>
+</div>

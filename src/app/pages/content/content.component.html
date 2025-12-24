@@ -1,0 +1,41 @@
+<div class="container__content" *ngIf="artigo">
+  <div class="content__voltar">
+    <a [routerLink]="['']"><< VOLTAR</a>
+  </div>
+
+  <div class="content__cover">
+    <img src="{{ artigo.fotoCapa }}" alt="" srcset="">
+  </div>
+
+  <div class="content__title">
+    <h1>{{ artigo.titulo }}</h1>
+  </div>
+
+  <div class="content__meta">
+    <div class="meta__itens">
+      <span class="meta__badge">{{ artigo.categoria }}</span>
+      <span class="meta__texto" *ngIf="obterDataFormatada()">{{ obterDataFormatada() }}</span>
+      <span class="meta__texto">{{ artigo.autor }}</span>
+      <span class="meta__texto">{{ obterLeituraMinutos() }} min de leitura</span>
+    </div>
+
+    <button type="button" class="meta__favorito" (click)="alternarFavorito()">
+      {{ favorito ? '★ Favoritado' : '☆ Favoritar' }}
+    </button>
+  </div>
+
+  <div class="content__descricao">
+    {{ artigo.descricao }}
+  </div>
+
+  <div class="content__texto">
+    {{ artigo.conteudo }}
+  </div>
+</div>
+
+<div class="content__nao-encontrado" *ngIf="naoEncontrado">
+  Artigo não encontrado.
+  <div class="content__voltar">
+    <a [routerLink]="['']">Voltar para o início</a>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+:root{
+  --cor-fundo: #111111;
+  --cor-texto: #ffffff;
+  --cor-fundo-card: #1a1a1a;
+  --cor-fundo-secundario: #202020;
+  --cor-borda: #2d2d2d;
+  --cor-destaque: #ffe000;
+}
+
+body[data-tema='claro']{
+  --cor-fundo: #f6f6f6;
+  --cor-texto: #111111;
+  --cor-fundo-card: #ffffff;
+  --cor-fundo-secundario: #eeeeee;
+  --cor-borda: #d8d8d8;
+  --cor-destaque: #b80000;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body{
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+button{
+  font-family: inherit;
+}

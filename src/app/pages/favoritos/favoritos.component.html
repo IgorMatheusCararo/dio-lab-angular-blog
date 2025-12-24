@@ -1,0 +1,25 @@
+<app-menu-title></app-menu-title>
+
+<div class="container__favoritos">
+  <div class="favoritos__cabecalho">
+    <h2>Favoritos</h2>
+    <button type="button" class="favoritos__botao" (click)="limpar()" [disabled]="!artigos.length">
+      Limpar favoritos
+    </button>
+  </div>
+
+  <div class="favoritos__lista" *ngIf="artigos.length">
+    <app-small-card
+      *ngFor="let artigo of artigos"
+      [Id]="artigo.id"
+      [cardTitle]="artigo.titulo"
+      [photoCover]="artigo.fotoCapa"
+      [categoria]="artigo.categoria"
+      [dataPublicacao]="artigo.dataPublicacao"
+    ></app-small-card>
+  </div>
+
+  <div class="favoritos__vazio" *ngIf="!artigos.length">
+    Você ainda não favoritou nenhum artigo.
+  </div>
+</div>

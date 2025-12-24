@@ -1,0 +1,52 @@
+<app-menu-title></app-menu-title>
+
+<div class="container__filtros">
+  <div class="filtros__linha">
+    <input
+      type="text"
+      class="filtros__campo"
+      placeholder="Pesquisar por título, descrição ou tag"
+      [(ngModel)]="textoPesquisa"
+      (ngModelChange)="aplicarFiltros()"
+    >
+
+    <select class="filtros__campo" [(ngModel)]="categoriaSelecionada" (ngModelChange)="aplicarFiltros()">
+      <option value="">Todas as categorias</option>
+      <option *ngFor="let categoria of categorias" [value]="categoria">{{ categoria }}</option>
+    </select>
+
+    <button type="button" class="filtros__botao" (click)="limparFiltros()">Limpar</button>
+  </div>
+
+  <div class="filtros__resumo">
+    {{ artigosFiltrados.length }} artigo(s) encontrado(s)
+  </div>
+</div>
+
+<div class="container__articles" *ngIf="artigoDestaque">
+  <div class="articles__main">
+    <app-big-card
+      [Id]="artigoDestaque.id"
+      [photoCover]="artigoDestaque.fotoCapa"
+      [cardTitle]="artigoDestaque.titulo"
+      [cardDescription]="artigoDestaque.descricao"
+      [categoria]="artigoDestaque.categoria"
+      [dataPublicacao]="artigoDestaque.dataPublicacao"
+    ></app-big-card>
+  </div>
+
+  <div class="articles__others">
+    <app-small-card
+      *ngFor="let artigo of artigosLista"
+      [Id]="artigo.id"
+      [cardTitle]="artigo.titulo"
+      [photoCover]="artigo.fotoCapa"
+      [categoria]="artigo.categoria"
+      [dataPublicacao]="artigo.dataPublicacao"
+    ></app-small-card>
+  </div>
+</div>
+
+<div class="container__vazio" *ngIf="!artigoDestaque">
+  Nenhum artigo encontrado.
+</div>
